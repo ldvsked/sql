@@ -1,4 +1,4 @@
-# Day 01 - Piscine SQL
+# Day 01 — Piscine SQL
 
 ## _First steps working with sets and JOINs in SQL_
 
@@ -15,27 +15,27 @@ Resume: Today you will see how to get needed data based on sets constructions an
 3. [Chapter III](#chapter-iii) \
     3.1. [Rules of the day](#rules-of-the-day)  
 4. [Chapter IV](#chapter-iv) \
-    4.1. [Exercise 00 - Let’s make UNION dance](#exercise-00-lets-make-union-dance)  
+    4.1. [Exercise 00 — Let’s make UNION dance](#exercise-00-lets-make-union-dance)  
 5. [Chapter V](#chapter-v) \
-    5.1. [Exercise 01 - UNION dance with subquery](#exercise-01-union-dance-with-subquery)  
+    5.1. [Exercise 01 — UNION dance with subquery](#exercise-01-union-dance-with-subquery)  
 6. [Chapter VI](#chapter-vi) \
-    6.1. [Exercise 02 - Duplicates or not duplicates](#exercise-02-duplicates-or-not-duplicates)  
+    6.1. [Exercise 02 — Duplicates or not duplicates](#exercise-02-duplicates-or-not-duplicates)  
 7. [Chapter VII](#chapter-vii) \
-    7.1. [Exercise 03 - “Hidden” Insights](#exercise-03-hidden-insights)  
+    7.1. [Exercise 03 — “Hidden” Insights](#exercise-03-hidden-insights)  
 8. [Chapter VIII](#chapter-viii) \
-    8.1. [Exercise 04 - Difference? Yep, let's find the difference between multisets](#exercise-04-difference-yep-lets-find-the-difference-between-multisets)
+    8.1. [Exercise 04 — Difference? Yep, let's find the difference between multisets](#exercise-04-difference-yep-lets-find-the-difference-between-multisets)
 9. [Chapter IX](#chapter-ix) \
-    9.1. [Exercise 05 - Did you hear about Cartesian Product?](#exercise-05-did-you-hear-about-cartesian-product)
+    9.1. [Exercise 05 — Did you hear about Cartesian Product?](#exercise-05-did-you-hear-about-cartesian-product)
 10. [Chapter X](#chapter-x) \
-    10.1. [Exercise 06 - Lets see on “Hidden” Insights](#exercise-06-lets-see-on-hidden-insights)
+    10.1. [Exercise 06 — Lets see on “Hidden” Insights](#exercise-06-lets-see-on-hidden-insights)
 11. [Chapter XI](#chapter-xi) \
-    11.1. [Exercise 07 - Just make a JOIN](#exercise-07-just-make-a-join)
+    11.1. [Exercise 07 — Just make a JOIN](#exercise-07-just-make-a-join)
 12. [Chapter XII](#chapter-xii) \
-    12.1. [Exercise 08 - Migrate JOIN to NATURAL JOIN](#exercise-08-migrate-join-to-natural-join)
+    12.1. [Exercise 08 — Migrate JOIN to NATURAL JOIN](#exercise-08-migrate-join-to-natural-join)
 13. [Chapter XIII](#chapter-xiii) \
-    13.1. [Exercise 09 - IN versus EXISTS](#exercise-09-in-versus-exists)
+    13.1. [Exercise 09 — IN versus EXISTS](#exercise-09-in-versus-exists)
 14. [Chapter XIV](#chapter-xiv) \
-    14.1. [Exercise 10 - Global JOIN](#exercise-10-global-join)
+    14.1. [Exercise 10 — Global JOIN](#exercise-10-global-join)
 
 
 ## Chapter I
@@ -86,35 +86,35 @@ Absolutely anything can be represented in SQL! Let's get started and have fun!
 
 
 1. **pizzeria** table (Dictionary Table with available pizzerias)
-- field id - primary key
-- field name - name of pizzeria
-- field rating - average rating of pizzeria (from 0 to 5 points)
+- field id — primary key
+- field name — name of pizzeria
+- field rating — average rating of pizzeria (from 0 to 5 points)
 2. **person** table (Dictionary Table with persons who loves pizza)
-- field id - primary key
-- field name - name of person
-- field age - age of person
-- field gender - gender of person
-- field address - address of person
+- field id — primary key
+- field name — name of person
+- field age — age of person
+- field gender — gender of person
+- field address — address of person
 3. **menu** table (Dictionary Table with available menu and price for concrete pizza)
-- field id - primary key
-- field pizzeria_id - foreign key to pizzeria
-- field pizza_name - name of pizza in pizzeria
-- field price - price of concrete pizza
+- field id — primary key
+- field pizzeria_id — foreign key to pizzeria
+- field pizza_name — name of pizza in pizzeria
+- field price — price of concrete pizza
 4. **person_visits** table (Operational Table with information about visits of pizzeria)
-- field id - primary key
-- field person_id - foreign key to person
-- field pizzeria_id - foreign key to pizzeria
-- field visit_date - date (for example 2022-01-01) of person visit 
+- field id — primary key
+- field person_id — foreign key to person
+- field pizzeria_id — foreign key to pizzeria
+- field visit_date — date (for example 2022-01-01) of person visit 
 5. **person_order** table (Operational Table with information about persons orders)
-- field id - primary key
-- field person_id - foreign key to person
-- field menu_id - foreign key to menu
-- field order_date - date (for example 2022-01-01) of person order 
+- field id — primary key
+- field person_id — foreign key to person
+- field menu_id — foreign key to menu
+- field order_date — date (for example 2022-01-01) of person order 
 
 People's visit and people's order are different entities and don't contain any correlation between data. For example, a customer can be in a restaurant (just looking at the menu) and in that time place an order in another restaurant by phone or mobile application. Or another case, just be at home and again make a call with order without any visits.
 
 ## Chapter IV
-## Exercise 00 - Let’s make UNION dance
+## Exercise 00 — Let’s make UNION dance
 
 | Exercise 00: Let’s make UNION dance |                                                                                                                          |
 |---------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -134,7 +134,7 @@ Please write a SQL statement that returns the menu identifier and pizza names fr
 
 
 ## Chapter V
-## Exercise 01 - UNION dance with subquery
+## Exercise 01 — UNION dance with subquery
 
 | Exercise 01: UNION dance with subquery|                                                                                                                          |
 |---------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -156,7 +156,7 @@ Please modify an SQL statement from "Exercise 00" by removing the object_id colu
 
 
 ## Chapter VI
-## Exercise 02 - Duplicates or not duplicates
+## Exercise 02 — Duplicates or not duplicates
 
 | Exercise 02: Duplicates or not duplicates|                                                                                                                          |
 |---------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -170,7 +170,7 @@ Please modify an SQL statement from "Exercise 00" by removing the object_id colu
 Write an SQL statement that returns unique pizza names from the `menu` table and sorts them by the pizza_name column in descending order. Please note the Denied section.
 
 ## Chapter VII
-## Exercise 03 - “Hidden” Insights
+## Exercise 03 — “Hidden” Insights
 
 | Exercise 03: “Hidden” Insights |                                                                                                                          |
 |---------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -193,7 +193,7 @@ Write an SQL statement that returns common rows for attributes order_date, perso
 | ... | ... |
 
 ## Chapter VIII
-## Exercise 04 - Difference? Yep, let's find the difference between multisets.
+## Exercise 04 — Difference? Yep, let's find the difference between multisets.
 
 
 | Exercise 04: Difference? Yep, let's find the difference between multisets. |                                                                                                                          |
@@ -208,7 +208,7 @@ Write an SQL statement that returns common rows for attributes order_date, perso
 Please write a SQL statement that returns a difference (minus) of person_id column values while saving duplicates between `person_order` table and `person_visits` table for order_date and visit_date are for January 7, 2022.
 
 ## Chapter IX
-## Exercise 05 - Did you hear about Cartesian Product?
+## Exercise 05 — Did you hear about Cartesian Product?
 
 
 | Exercise 05: Did you hear about Cartesian Product? |                                                                                                                          |
@@ -228,7 +228,7 @@ Please write a SQL statement that returns all possible combinations between `per
 
 
 ## Chapter X
-## Exercise 06 - Lets see on “Hidden” Insights
+## Exercise 06 — Lets see on “Hidden” Insights
 
 
 | Exercise 06: Lets see on “Hidden” Insights |                                                                                                                          |
@@ -248,7 +248,7 @@ Let's go back to Exercise #03 and modify our SQL statement to return person name
 | ... | ... |
 
 ## Chapter XI
-## Exercise 07 - Just make a JOIN
+## Exercise 07 — Just make a JOIN
 
 
 | Exercise 07: Just make a JOIN |                                                                                                                          |
@@ -269,7 +269,7 @@ Write an SQL statement that returns the order date from the `person_order` table
 
 
 ## Chapter XII
-## Exercise 08 - Migrate JOIN to NATURAL JOIN
+## Exercise 08 — Migrate JOIN to NATURAL JOIN
 
 
 | Exercise 08: Migrate JOIN to NATURAL JOIN |                                                                                                                          |
@@ -285,7 +285,7 @@ Write an SQL statement that returns the order date from the `person_order` table
 Please rewrite a SQL statement from Exercise #07 by using NATURAL JOIN construction. The result must be the same like for Exercise #07.  
 
 ## Chapter XIII
-## Exercise 09 - IN versus EXISTS
+## Exercise 09 — IN versus EXISTS
 
 
 | Exercise 09: IN versus EXISTS |                                                                                                                          |
@@ -298,7 +298,7 @@ Please rewrite a SQL statement from Exercise #07 by using NATURAL JOIN construct
 Write 2 SQL statements that return a list of pizzerias that have not been visited by people using IN for the first and EXISTS for the second.
 
 ## Chapter XIV
-## Exercise 10 - Global JOIN
+## Exercise 10 — Global JOIN
 
 
 | Exercise 10: Global JOIN |                                                                                                                          |
