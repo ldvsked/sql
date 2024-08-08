@@ -1,4 +1,4 @@
-# Day 01 — Piscine SQL
+# Day 01 — SQL Bootcamp
 
 ## _First steps working with sets and JOINs in SQL_
 
