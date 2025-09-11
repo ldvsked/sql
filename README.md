@@ -1,42 +1,45 @@
-# Day 01 — SQL Bootcamp
-
 ## _First steps working with sets and JOINs in SQL_
 
-Resume: Today you will see how to get needed data based on sets constructions and simple JOINs.
+In this project you will master the fundamental SQL skills: working with sets and set operators, creating subqueries, sorting by multiple columns, as well as various types of table joins. 
+
+You will learn how to find intersections and differences in data, which is essential for analysis and solving business tasks.
+
+These skills will be useful for query development, data analytics, and database administration.
 
 💡 [Tap here](https://new.oprosso.net/p/4cb31ec3f47a4596bc758ea1861fb624) **to leave your feedback on the project**. It's anonymous and will help our team make your educational experience better. We recommend completing the survey immediately after the project.
 
 ## Contents
 
-1. [Chapter I](#chapter-i) \
-    1.1. [Preamble](#preamble)
-2. [Chapter II](#chapter-ii) \
-    2.1. [General Rules](#general-rules)
-3. [Chapter III](#chapter-iii) \
-    3.1. [Rules of the day](#rules-of-the-day)  
-4. [Chapter IV](#chapter-iv) \
-    4.1. [Exercise 00 — Let’s make UNION dance](#exercise-00-lets-make-union-dance)  
-5. [Chapter V](#chapter-v) \
-    5.1. [Exercise 01 — UNION dance with subquery](#exercise-01-union-dance-with-subquery)  
-6. [Chapter VI](#chapter-vi) \
-    6.1. [Exercise 02 — Duplicates or not duplicates](#exercise-02-duplicates-or-not-duplicates)  
-7. [Chapter VII](#chapter-vii) \
-    7.1. [Exercise 03 — “Hidden” Insights](#exercise-03-hidden-insights)  
-8. [Chapter VIII](#chapter-viii) \
-    8.1. [Exercise 04 — Difference? Yep, let's find the difference between multisets](#exercise-04-difference-yep-lets-find-the-difference-between-multisets)
-9. [Chapter IX](#chapter-ix) \
-    9.1. [Exercise 05 — Did you hear about Cartesian Product?](#exercise-05-did-you-hear-about-cartesian-product)
-10. [Chapter X](#chapter-x) \
-    10.1. [Exercise 06 — Lets see on “Hidden” Insights](#exercise-06-lets-see-on-hidden-insights)
-11. [Chapter XI](#chapter-xi) \
-    11.1. [Exercise 07 — Just make a JOIN](#exercise-07-just-make-a-join)
-12. [Chapter XII](#chapter-xii) \
-    12.1. [Exercise 08 — Migrate JOIN to NATURAL JOIN](#exercise-08-migrate-join-to-natural-join)
-13. [Chapter XIII](#chapter-xiii) \
-    13.1. [Exercise 09 — IN versus EXISTS](#exercise-09-in-versus-exists)
-14. [Chapter XIV](#chapter-xiv) \
-    14.1. [Exercise 10 — Global JOIN](#exercise-10-global-join)
+- [How to learn at «School 21»](#how-to-learn-at-school-21)
+- [Chapter I](#chapter-i)
+- [Preamble](#preamble)
+- [Chapter II](#chapter-ii)
+- [Rules of the day](#rules-of-the-day)
+- [Chapter III](#chapter-iii)
+- [Exercise 00 — Let’s make UNION dance](#exercise-00--lets-make-union-dance)
+- [Exercise 01 — UNION dance with subquery](#exercise-01--union-dance-with-subquery)
+- [Exercise 02 — Duplicates or not duplicates](#exercise-02--duplicates-or-not-duplicates)
+- [Exercise 03 — “Hidden” Insights](#exercise-03--hidden-insights)
+- [Exercise 04 — Difference? Yep, let's find the difference between multisets.](#exercise-04--difference-yep-lets-find-the-difference-between-multisets)
+- [Exercise 05 — Did you hear about Cartesian Product?](#exercise-05--did-you-hear-about-cartesian-product)
+- [Exercise 06 — Lets see on “Hidden” Insights](#exercise-06--lets-see-on-hidden-insights)
+- [Exercise 07 — Just make a JOIN](#exercise-07--just-make-a-join)
+- [Exercise 08 — Migrate JOIN to NATURAL JOIN](#exercise-08--migrate-join-to-natural-join)
+- [Exercise 09 — IN versus EXISTS](#exercise-09--in-versus-exists)
+- [Exercise 10 — Global JOIN](#exercise-10--global-join)
 
+## How to learn at «School 21»
+1. «School 21» might feel different from your previous educational experiences. It emphasizes high autonomy: you’re given a task, and you must complete it. Throughout the course, you are expected to delve deeper into the subject and solve problems. Use all available means to find information—the resources of the internet are limitless. Be mindful of your sources (for example, if you use AI tools): verify, think, analyze, and compare.
+2. You will need to present your solution to other students and receive feedback from them. Peer-to-peer (P2P) learning is a process where students exchange knowledge and experience, simultaneously acting as both mentors and learners. This way you can learn not only from materials but also from each other.
+3. Don’t hesitate to ask for help: around you are peers who are also navigating this path for the first time. Likewise, don’t be afraid to respond to requests for help—your experience is valuable and useful, so share it openly with others. Join RocketChat to stay updated with the latest community announcements.
+4. Your learning will be meaningless if you simply copy others’ solutions. If you receive help, always make sure you fully understand the why, how, and purpose behind it. Don’t be afraid to make mistakes.
+5. If you’re stuck on something and feel like you’ve tried everything but still don’t know what to do—just take a break! Believe it or not, this advice has helped many professionals in their work. Step away, clear your mind, and the right solution might just come to you next time!
+6. The learning process is just as important as the result. It’s not just about solving the task—it’s about understanding how to solve it.
+
+How to work with the project: 
+1. Before starting, clone the project from GitLab into a repository of the same name.
+2. All code files must be created in the src/ folder of the cloned repository.
+3. After cloning, create a develop branch and push changes to it in GitLab. Push to GitLab in the develop branch as well.
 
 ## Chapter I
 ## Preamble
@@ -60,27 +63,18 @@ The main rules for working with sets are as follows:
 In addition, SQL sets are useful for calculating some specific data science metrics, such as the Jaccard distance between 2 objects based on existing data features.
 
 ## Chapter II
-## General Rules
-
-- Use this page as your only reference. Do not listen to rumors and speculations about how to prepare your solution.
-- Make sure you are using the latest version of PostgreSQL.
-- It is perfectly fine if you use the IDE to write source code (aka SQL script).
-- To be evaluated, your solution must be in your GIT repository.
-- Your solutions will be evaluated by your peers.
-- You should not leave any files in your directory other than those explicitly specified by the exercise instructions. It is recommended that you modify your `.gitignore` to avoid accidents.
-- Got a question? Ask your neighbor to the right. Otherwise, try your neighbor on the left.
-- Your reference manual: mates / Internet / Google. 
-- Read the examples carefully. You may need things not specified in the topic.
-- And may the SQL-Force be with you!
-Absolutely anything can be represented in SQL! Let's get started and have fun!
-
-## Chapter III
 ## Rules of the day
 
-- Please make sure you have your own database and access to it on your PostgreSQL cluster. 
+- Make sure you are using the latest version of PostgreSQL.
+- It is perfectly fine if you use the IDE to write source code (aka SQL script).
+- You should not leave any files in your directory other than those explicitly specified by the exercise instructions. It is recommended that you modify your `.gitignore' to avoid accidents.
+-  Please make sure you have your own database and access to it on your PostgreSQL cluster.
 - Please download a [script](materials/model.sql) with Database Model here and apply the script to your database (you can use command line with psql or just run it through any IDE, for example DataGrip from JetBrains or pgAdmin from PostgreSQL community). 
 - All tasks contain a list of Allowed and Denied sections with listed database options, database types, SQL constructions etc. Please have a look at the section before you start.
-- Please take a look at the Logical View of our Database Model. 
+- And may the SQL-Force be with you!
+- Absolutely anything can be represented in SQL! Let's get started and have fun!
+
+Please have a look at the Logical View of our Database Model. 
 
 ![schema](misc/images/schema.png)
 
@@ -113,7 +107,7 @@ Absolutely anything can be represented in SQL! Let's get started and have fun!
 
 People's visit and people's order are different entities and don't contain any correlation between data. For example, a customer can be in a restaurant (just looking at the menu) and in that time place an order in another restaurant by phone or mobile application. Or another case, just be at home and again make a call with order without any visits.
 
-## Chapter IV
+## Chapter III
 ## Exercise 00 — Let’s make UNION dance
 
 | Exercise 00: Let’s make UNION dance |                                                                                                                          |
@@ -132,8 +126,6 @@ Please write a SQL statement that returns the menu identifier and pizza names fr
 | ... | ... |
 
 
-
-## Chapter V
 ## Exercise 01 — UNION dance with subquery
 
 | Exercise 01: UNION dance with subquery|                                                                                                                          |
@@ -155,7 +147,6 @@ Please modify an SQL statement from "Exercise 00" by removing the object_id colu
 | ... |
 
 
-## Chapter VI
 ## Exercise 02 — Duplicates or not duplicates
 
 | Exercise 02: Duplicates or not duplicates|                                                                                                                          |
@@ -169,7 +160,6 @@ Please modify an SQL statement from "Exercise 00" by removing the object_id colu
  
 Write an SQL statement that returns unique pizza names from the `menu` table and sorts them by the pizza_name column in descending order. Please note the Denied section.
 
-## Chapter VII
 ## Exercise 03 — “Hidden” Insights
 
 | Exercise 03: “Hidden” Insights |                                                                                                                          |
@@ -192,7 +182,6 @@ Write an SQL statement that returns common rows for attributes order_date, perso
 | 2022-01-04 | 3 |
 | ... | ... |
 
-## Chapter VIII
 ## Exercise 04 — Difference? Yep, let's find the difference between multisets.
 
 
@@ -207,7 +196,6 @@ Write an SQL statement that returns common rows for attributes order_date, perso
 
 Please write a SQL statement that returns a difference (minus) of person_id column values while saving duplicates between `person_order` table and `person_visits` table for order_date and visit_date are for January 7, 2022.
 
-## Chapter IX
 ## Exercise 05 — Did you hear about Cartesian Product?
 
 
@@ -227,7 +215,6 @@ Please write a SQL statement that returns all possible combinations between `per
 | ... | ... | ... | ... | ... | ... | ... | ... |
 
 
-## Chapter X
 ## Exercise 06 — Lets see on “Hidden” Insights
 
 
@@ -247,7 +234,6 @@ Let's go back to Exercise #03 and modify our SQL statement to return person name
 | 2022-01-01 | Andrey |
 | ... | ... |
 
-## Chapter XI
 ## Exercise 07 — Just make a JOIN
 
 
@@ -268,7 +254,7 @@ Write an SQL statement that returns the order date from the `person_order` table
 | ... | ... |
 
 
-## Chapter XII
+
 ## Exercise 08 — Migrate JOIN to NATURAL JOIN
 
 
@@ -284,7 +270,7 @@ Write an SQL statement that returns the order date from the `person_order` table
 
 Please rewrite a SQL statement from Exercise #07 by using NATURAL JOIN construction. The result must be the same like for Exercise #07.  
 
-## Chapter XIII
+
 ## Exercise 09 — IN versus EXISTS
 
 
@@ -297,7 +283,7 @@ Please rewrite a SQL statement from Exercise #07 by using NATURAL JOIN construct
 
 Write 2 SQL statements that return a list of pizzerias that have not been visited by people using IN for the first and EXISTS for the second.
 
-## Chapter XIV
+
 ## Exercise 10 — Global JOIN
 
 
