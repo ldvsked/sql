@@ -1,42 +1,43 @@
-# Day 02 — SQL Bootcamp
-
 ## _Deep diving into JOINs in SQL_
 
-Resume: Today you will see how to get needed data based on different structures JOINs.
+In this project, you'll master essential SQL and relational database skills: understanding relational algebra, using different JOIN operations, writing queries with CTEs, handling NULL values, and filtering/sorting data. 
+
+These competencies will prove valuable in development, database optimization, analytics, and programming—empowering you to work with data efficiently and make data-driven decisions.
 
 💡 [Tap here](https://new.oprosso.net/p/4cb31ec3f47a4596bc758ea1861fb624) **to leave your feedback on the project**. It's anonymous and will help our team make your educational experience better. We recommend completing the survey immediately after the project.
 
 ## Contents
 
-1. [Chapter I](#chapter-i) \
-    1.1. [Preamble](#preamble)
-2. [Chapter II](#chapter-ii) \
-    2.1. [General Rules](#general-rules)
-3. [Chapter III](#chapter-iii) \
-    3.1. [Rules of the day](#rules-of-the-day)  
-4. [Chapter IV](#chapter-iv) \
-    4.1. [Exercise 00 — Move to the LEFT, move to the RIGHT](#exercise-00-move-to-the-left-move-to-the-right)  
-5. [Chapter V](#chapter-v) \
-    5.1. [Exercise 01 — Find data gaps](#exercise-01-find-data-gaps)  
-6. [Chapter VI](#chapter-vi) \
-    6.1. [Exercise 02 — FULL means ‘completely filled’](#exercise-02-full-means-completely-filled)  
-7. [Chapter VII](#chapter-vii) \
-    7.1. [Exercise 03 — Reformat to CTE](#exercise-03-reformat-to-cte)  
-8. [Chapter VIII](#chapter-viii) \
-    8.1. [Exercise 04 — Find favourite pizzas](#exercise-04-find-favourite-pizzas)
-9. [Chapter IX](#chapter-ix) \
-    9.1. [Exercise 05 — Investigate Person Data](#exercise-05-investigate-person-data)
-10. [Chapter X](#chapter-x) \
-    10.1. [Exercise 06 — favourite pizzas for Denis and Anna](#exercise-06-favourite-pizzas-for-denis-and-anna)
-11. [Chapter XI](#chapter-xi) \
-    11.1. [Exercise 07 — Cheapest pizzeria for Dmitriy](#exercise-07-cheapest-pizzeria-for-dmitriy)
-12. [Chapter XII](#chapter-xii) \
-    12.1. [Exercise 08 — Continuing to research data](#exercise-08-continuing-to-research-data)
-13. [Chapter XIII](#chapter-xiii) \
-    13.1. [Exercise 09 — Who loves cheese and pepperoni?](#exercise-09-who-loves-cheese-and-pepperoni)
-14. [Chapter XIV](#chapter-xiv) \
-    14.1. [Exercise 10 — Find persons from one city](#exercise-10-find-persons-from-one-city)
+- [How to learn at «School 21»](#how-to-learn-at-school-21)
+- [Chapter I](#chapter-i)
+- [Preamble](#preamble)
+- [Chapter II](#chapter-ii)
+- [Rules of the day](#rules-of-the-day)
+- [Chapter III](#chapter-iii)
+- [Exercise 00 — Move to the LEFT, move to the RIGHT](#exercise-00--move-to-the-left-move-to-the-right)
+- [Exercise 01 — Find data gaps](#exercise-01--find-data-gaps)
+- [Exercise 02 — FULL means ‘completely filled’](#exercise-02--full-means-completely-filled)
+- [Exercise 03 — Reformat to CTE](#exercise-03--reformat-to-cte)
+- [Exercise 04 — Find favorite pizzas](#exercise-04--find-favorite-pizzas)
+- [Exercise 05 — Investigate Person Data](#exercise-05--investigate-person-data)
+- [Exercise 06 — Favorite pizzas for Denis and Anna](#exercise-06--favorite-pizzas-for-denis-and-anna)
+- [Exercise 07 — Cheapest pizzeria for Dmitriy](#exercise-07--cheapest-pizzeria-for-dmitriy)
+- [Exercise 08 — Continuing to research data](#exercise-08--continuing-to-research-data)
+- [Exercise 09 — Who loves cheese and pepperoni?](#exercise-09--who-loves-cheese-and-pepperoni)
+- [Exercise 10 — Find persons from one city](#exercise-10--find-persons-from-one-city)
 
+## How to learn at «School 21»
+1. «School 21» might feel different from your previous educational experiences. It emphasizes high autonomy: you’re given a task, and you must complete it. Throughout the course, you are expected to delve deeper into the subject and solve problems. Use all available means to find information—the resources of the internet are limitless. Be mindful of your sources (for example, if you use AI tools): verify, think, analyze, and compare.
+2. You will need to present your solution to other students and receive feedback from them. Peer-to-peer (P2P) learning is a process where students exchange knowledge and experience, simultaneously acting as both mentors and learners. This way you can learn not only from materials but also from each other.
+3. Don’t hesitate to ask for help: around you are peers who are also navigating this path for the first time. Likewise, don’t be afraid to respond to requests for help—your experience is valuable and useful, so share it openly with others. Join RocketChat to stay updated with the latest community announcements.
+4. Your learning will be meaningless if you simply copy others’ solutions. If you receive help, always make sure you fully understand the why, how, and purpose behind it. Don’t be afraid to make mistakes.
+5. If you’re stuck on something and feel like you’ve tried everything but still don’t know what to do—just take a break! Believe it or not, this advice has helped many professionals in their work. Step away, clear your mind, and the right solution might just come to you next time!
+6. The learning process is just as important as the result. It’s not just about solving the task—it’s about understanding how to solve it.
+
+How to work with the project: 
+1. Before starting, clone the project from GitLab into a repository of the same name.
+2. All code files must be created in the src/ folder of the cloned repository.
+3. After cloning, create a develop branch and push changes to it in GitLab. Push to GitLab in the develop branch as well.
 
 ## Chapter I
 ## Preamble
@@ -51,7 +52,10 @@ The image shows a Relational Expression in Tree View. This expression correspond
 
 In other words, we can describe any SQL in the mathematical language of Relational Algebra.
 
-The main question (that we hear from our students) is why do we need to learn Relational Algebra in a course if we can write a SQL in the first attempt? My answer is yes and no at the same time. "Yes" means that you can write a SQL from the first attempt, that's right, "No" means that you need to know the main aspects of Relational Algebra, because this knowledge is used for optimization plans and for semantic queries. 
+You may ask: "Why do we need to learn Relational Algebra in a course if we can write a SQL in the first attempt?". 
+The answer is yes and no at the same time. 
+"Yes" means that you can write a SQL from the first attempt, that's right
+"No" means that you need to know the main aspects of Relational Algebra, because this knowledge is used for optimization plans and for semantic queries. 
 What kind of joins exist in Relational Algebra?
 Actually, "Cross Join" is a primitive operator and it is an ancestor for other types of joins.
 - Natural Join,
@@ -72,30 +76,18 @@ But what is a join operation between 2 tables? Let me present a part of pseudo c
 It’s just a set of loops ... Not magic at all
 
 
-
-
 ## Chapter II
-## General Rules
-
-- Use this page as your only reference. Do not listen to rumors and speculations about how to prepare your solution.
-- Make sure you are using the latest version of PostgreSQL.
-- It is perfectly fine if you use the IDE to write source code (aka SQL script).
-- To be evaluated, your solution must be in your GIT repository.
-- Your solutions will be evaluated by your peers.
-- You should not leave any files in your directory other than those explicitly specified by the exercise instructions. It is recommended that you modify your `.gitignore` to avoid accidents.
-- Got a question? Ask your neighbor to the right. Otherwise, try your neighbor on the left.
-- Your reference manual: mates / Internet / Google. 
-- Read the examples carefully. You may need things not specified in the topic.
-- And may the SQL-Force be with you!
-Absolutely anything can be represented in SQL! Let's get started and have fun!
-
-## Chapter III
 ## Rules of the day
 
-- Please make sure you have an own database and access for it on your PostgreSQL cluster. 
+- Make sure you are using the latest version of PostgreSQL.
+- It is perfectly fine if you use the IDE to write source code (aka SQL script).
+- You should not leave any files in your directory other than those explicitly specified by the exercise instructions. It is recommended that you modify your `.gitignore' to avoid accidents. 
 - Please download a [script](materials/model.sql) with Database Model here and apply the script to your database (you can use command line with psql or just run it through any IDE, for example DataGrip from JetBrains or pgAdmin from PostgreSQL community). 
-- All tasks contain a list of Allowed and Denied sections with listed database options, database types, SQL constructions etc. Please have a look at that section before you start.
-- Please take a look at the Logical View of our Database Model. 
+- All tasks contain a list of Allowed and Denied sections with listed database options, database types, SQL constructions etc. Please have a look at the section before you start.
+- And may the SQL-Force be with you!
+- Absolutely anything can be represented in SQL! Let's get started and have fun!
+
+Please take a look at the Logical View of our Database Model. 
 
 ![schema](misc/images/schema.png)
 
@@ -128,7 +120,8 @@ Absolutely anything can be represented in SQL! Let's get started and have fun!
 
 People's visit and people's order are different entities and don't contain any correlation between data. For example, a customer can be in a restaurant (just looking at the menu) and in that time place an order in another restaurant by phone or mobile application. Or another case, just be at home and again make a call with order without any visits.
 
-## Chapter IV
+## Chapter III
+
 ## Exercise 00 — Move to the LEFT, move to the RIGHT
 
 | Exercise 00: Move to the LEFT, move to the RIGHT |                                                                                                                          |
@@ -143,7 +136,7 @@ People's visit and people's order are different entities and don't contain any c
 Write a SQL statement that returns a list of pizzerias with the corresponding rating value that have not been visited by people.
 
 
-## Chapter V
+
 ## Exercise 01 — Find data gaps
 
 | Exercise 01: Find data gaps|                                                                                                                          |
@@ -166,7 +159,7 @@ Please write a SQL statement that returns the missing days from January 1 throug
 | ... |
 
 
-## Chapter VI
+
 ## Exercise 02 — FULL means ‘completely filled’
 
 | Exercise 02: FULL means ‘completely filled’|                                                                                                                          |
@@ -191,7 +184,7 @@ Please write an SQL statement that will return the entire list of names of peopl
 | Dmitriy | null | - |
 | ... | ... | ... |
 
-## Chapter VII
+
 ## Exercise 03 — Reformat to CTE
 
 | Exercise 03: Reformat to CTE |                                                                                                                          |
@@ -213,8 +206,8 @@ Let's go back to Exercise #01, please rewrite your SQL using the CTE (Common Tab
 | 2022-01-05 | 
 | ... |
 
-## Chapter VIII
-## Exercise 04 — Find favourite pizzas
+
+## Exercise 04 — Find favorite pizzas
 
 
 | Exercise 04: Find favourite pizzas |                                                                                                                          |
@@ -233,7 +226,7 @@ Find complete information about all possible pizzeria names and prices to get mu
 | pepperoni pizza | Best Pizza | 800 |
 | ... | ... | ... |
 
-## Chapter IX
+
 ## Exercise 05 — Investigate Person Data
 
 
@@ -252,9 +245,7 @@ Find the names of all females over the age of 25 and sort the result by name. Th
 | ... |
 
 
-
-## Chapter X
-## Exercise 06 — favourite pizzas for Denis and Anna
+## Exercise 06 — Favorite pizzas for Denis and Anna
 
 
 | Exercise 06: favourite pizzas for Denis and Anna |                                                                                                                          |
@@ -272,7 +263,7 @@ Find all pizza names (and corresponding pizzeria names using the `menu` table) o
 | cheese pizza | Pizza Hut |
 | ... | ... |
 
-## Chapter XI
+
 ## Exercise 07 — Cheapest pizzeria for Dmitriy
 
 
@@ -285,7 +276,7 @@ Find all pizza names (and corresponding pizzeria names using the `menu` table) o
 
 Please find the name of the pizzeria Dmitriy visited on January 8, 2022 and could eat pizza for less than 800 rubles.
 
-## Chapter XII
+
 ## Exercise 08 — Continuing to research data
 
 
@@ -297,7 +288,7 @@ Please find the name of the pizzeria Dmitriy visited on January 8, 2022 and coul
 | Language                        | ANSI SQL                                                                                              |           
 
 
-Please find the names of all men from Moscow or Samara who order either pepperoni or mushroom pizza (or both). Please sort the result by person names in descending order. The sample output is shown below.
+Please find the names of all men from Moscow or Samara who order either pepperoni or mushroom pizza (or both). Sort the results by names in reverse alphabetical order. The sample output is shown below.
 
 | name | 
 | ------ | 
@@ -305,7 +296,7 @@ Please find the names of all men from Moscow or Samara who order either pepperon
 | ... |
 
 
-## Chapter XIII
+
 ## Exercise 09 — Who loves cheese and pepperoni?
 
 
@@ -316,7 +307,7 @@ Please find the names of all men from Moscow or Samara who order either pepperon
 | **Allowed**                               |                                                                                                                          |
 | Language                        | ANSI SQL                                                                                              |
 
-Find the names of all women who ordered both pepperoni and cheese pizzas (at any time and in any pizzerias). Make sure that the result is ordered by person's name. The sample data is shown below.
+Find the names of all women who ordered both pepperoni and cheese pizzas (at any time and in any pizzerias). Sort the results by names in alphabetical order. The sample data is shown below.
 
 | name | 
 | ------ | 
@@ -324,7 +315,6 @@ Find the names of all women who ordered both pepperoni and cheese pizzas (at any
 | ... |
 
 
-## Chapter XIV
 ## Exercise 10 — Find persons from one city
 
 
@@ -335,7 +325,7 @@ Find the names of all women who ordered both pepperoni and cheese pizzas (at any
 | **Allowed**                               |                                                                                                                          |
 | Language                        | ANSI SQL                                                                                              |
 
-Find the names of people who live at the same address. Make sure the result is sorted by 1st person's name, 2nd person's name, and shared address. The data sample is shown below. Make sure your column names match the column names below.
+Find the names of people who live at the same address (same city). Make sure the result is sorted by 1st person's name, 2nd person's name, and shared address. The data sample is shown below. Make sure your column names match the column names below.
 
 | person_name1 | person_name2 | common_address | 
 | ------ | ------ | ------ |
