@@ -1,37 +1,44 @@
-# Day 04 — SQL Bootcamp
-
 ## _Snapshots, virtual tables… What is going on?_
 
-Resume: Today you will see how to use a virtual view and physical snapshot of data.
+In this project you will learn how to create and use views to filter data, generate time ranges, identify missing dates, work with set operations, calculate discounts, and manage materialized views—including updating and dropping them.
+
+These skills are essential for data analytics (reporting, period comparisons), financial calculations (price analysis), and database optimization (query caching, schema management).
+
 
 💡 [Tap here](https://new.oprosso.net/p/4cb31ec3f47a4596bc758ea1861fb624) **to leave your feedback on the project**. It's anonymous and will help our team make your educational experience better. We recommend completing the survey immediately after the project.
 
 ## Contents
 
-1. [Chapter I](#chapter-i) \
-    1.1. [Preamble](#preamble)
-2. [Chapter II](#chapter-ii) \
-    2.1. [General Rules](#general-rules)
-3. [Chapter III](#chapter-iii) \
-    3.1. [Rules of the day](#rules-of-the-day)  
-4. [Chapter IV](#chapter-iv) \
-    4.1. [Exercise 00 — Let’s create separated views for persons](#exercise-00-lets-create-separated-views-for-persons)  
-5. [Chapter V](#chapter-v) \
-    5.1. [Exercise 01 — From parts to common view](#exercise-01-from-parts-to-common-view)  
-6. [Chapter VI](#chapter-vi) \
-    6.1. [Exercise 02 — “Store” generated dates in one place](#exercise-02-store-generated-dates-in-one-place)  
-7. [Chapter VII](#chapter-vii) \
-    7.1. [Exercise 03 — Find missing visit days with Database View](#exercise-03-find-missing-visit-days-with-database-view)  
-8. [Chapter VIII](#chapter-viii) \
-    8.1. [Exercise 04 — Let’s find something from Set Theory](#exercise-04-lets-find-something-from-set-theory)
-9. [Chapter IX](#chapter-ix) \
-    9.1. [Exercise 05 — Let’s calculate a discount price for each person](#exercise-05-lets-calculate-a-discount-price-for-each-person)
-10. [Chapter X](#chapter-x) \
-    10.1. [Exercise 06 — Materialization from virtualization](#exercise-06-materialization-from-virtualization)
-11. [Chapter XI](#chapter-xi) \
-    11.1. [Exercise 07 — Refresh our state](#exercise-07-refresh-our-state)
-12. [Chapter XII](#chapter-xii) \
-    12.1. [Exercise 08 — Just clear our database](#exercise-08-just-clear-our-database)
+- [How to learn at «School 21»](#how-to-learn-at-school-21)
+- [Chapter I](#chapter-i)
+- [Preamble](#preamble)
+- [Chapter II](#chapter-ii)
+- [Rules of the day](#rules-of-the-day)
+- [Chapter III](#chapter-iii)
+- [Exercise 00 — Let’s create separate views for persons](#exercise-00--lets-create-separate-views-for-persons)
+- [Exercise 01 — From parts to common view](#exercise-01--from-parts-to-common-view)
+- [Exercise 02 — "Store" generated dates in one place](#exercise-02--store-generated-dates-in-one-place)
+- [Exercise 03 — Find missing visit days with Database View](#exercise-03--find-missing-visit-days-with-database-view)
+- [Exercise 04 — Let’s find something from Set Theory](#exercise-04--lets-find-something-from-set-theory)
+- [Exercise 05 — Let’s calculate a discount price for each person](#exercise-05--lets-calculate-a-discount-price-for-each-person)
+- [Exercise 06 — Materialization from virtualization](#exercise-06--materialization-from-virtualization)
+- [Exercise 07 — Refresh our state](#exercise-07--refresh-our-state)
+- [Exercise 08 — Just clear our database](#exercise-08--just-clear-our-database)
+
+
+
+## How to learn at «School 21»
+1. «School 21» might feel different from your previous educational experiences. It emphasizes high autonomy: you’re given a task, and you must complete it. Throughout the course, you are expected to delve deeper into the subject and solve problems. Use all available means to find information—the resources of the internet are limitless. Be mindful of your sources (for example, if you use AI tools): verify, think, analyze, and compare.
+2. You will need to present your solution to other students and receive feedback from them. Peer-to-peer (P2P) learning is a process where students exchange knowledge and experience, simultaneously acting as both mentors and learners. This way you can learn not only from materials but also from each other.
+3. Don’t hesitate to ask for help: around you are peers who are also navigating this path for the first time. Likewise, don’t be afraid to respond to requests for help—your experience is valuable and useful, so share it openly with others. Join RocketChat to stay updated with the latest community announcements.
+4. Your learning will be meaningless if you simply copy others’ solutions. If you receive help, always make sure you fully understand the why, how, and purpose behind it. Don’t be afraid to make mistakes.
+5. If you’re stuck on something and feel like you’ve tried everything but still don’t know what to do—just take a break! Believe it or not, this advice has helped many professionals in their work. Step away, clear your mind, and the right solution might just come to you next time!
+6. The learning process is just as important as the result. It’s not just about solving the task—it’s about understanding how to solve it.
+
+How to work with the project: 
+1. Before starting, clone the project from GitLab into a repository of the same name.
+2. All code files must be created in the src/ folder of the cloned repository.
+3. After cloning, create a develop branch and push changes to it in GitLab. Push to GitLab in the develop branch as well.
 
 ## Chapter I
 ## Preamble
@@ -63,27 +70,17 @@ There are also "a few" additional differences between View and Materialized View
 
 
 ## Chapter II
-## General Rules
-
-- Use this page as your only reference. Do not listen to rumors and speculations about how to prepare your solution.
-- Make sure you are using the latest version of PostgreSQL.
-- It is perfectly fine if you use the IDE to write source code (aka SQL script).
-- To be evaluated, your solution must be in your GIT repository.
-- Your solutions will be evaluated by your peers.
-- You should not leave any files in your directory other than those explicitly specified by the exercise instructions. It is recommended that you modify your `.gitignore` to avoid accidents.
-- Got a question? Ask your neighbor to the right. Otherwise, try your neighbor on the left.
-- Your reference manual: mates / Internet / Google. 
-- Read the examples carefully. You may need things not specified in the topic.
-- And may the SQL-Force be with you!
-Absolutely anything can be represented in SQL! Let's get started and have fun!
-
-## Chapter III
 ## Rules of the day
 
-- Please make sure you have your own database and access for it on your PostgreSQL cluster. 
-- Please download a [script](materials/model.sql) with Database Model here and apply the script to your database (you can use command line with psql or just run it through any IDE, for example DataGrip from JetBrains or pgAdmin from PostgreSQL community). **Our knowledge way is incremental and linear therefore please be aware all changes that you made in Day03 during exercises 07-13 should be on place (its similar like in real world , when we applied a release and need to be consistency with data for new changes).**
-- All tasks contain a list of Allowed and Denied sections with listed database options, database types, SQL constructions etc. Please have a look at this section before you start.
-- Please take a look at the Logical View of our Database Model. 
+- Make sure you are using the latest version of PostgreSQL.
+- It is perfectly fine if you use the IDE to write source code (aka SQL script).
+- You should not leave any files in your directory other than those explicitly specified by the exercise instructions. It is recommended that you modify your `.gitignore' to avoid accidents. 
+- Please download a [script](materials/model.sql) with Database Model here and apply the script to your database (you can use command line with psql or just run it through any IDE, for example DataGrip from JetBrains or pgAdmin from PostgreSQL community). **Our knowledge way is incremental and linear therefore please be aware all changes that you made in SQLB4_DML (Day03) during exercises 07-13 should be on place (its similar like in real world , when we applied a release and need to be consistency with data for new changes).**
+- All tasks contain a list of Allowed and Denied sections with listed database options, database types, SQL constructions etc. Please have a look at the section before you start.
+- And may the SQL-Force be with you!
+- Absolutely anything can be represented in SQL! Let's get started and have fun!
+
+Please take a look at the Logical View of our Database Model. 
 
 ![schema](misc/images/schema.png)
 
@@ -116,8 +113,8 @@ Absolutely anything can be represented in SQL! Let's get started and have fun!
 
 People's visit and people's order are different entities and don't contain any correlation between data. For example, a customer can be in a restaurant (just looking at the menu) and in that time place an order in another restaurant by phone or mobile application. Or another case, just be at home and again make a call with order without any visits.
 
-## Chapter IV
-## Exercise 00 — Let’s create separated views for persons
+## Chapter III
+## Exercise 00 — Let’s create separate views for persons
 
 | Exercise 00: Let’s create separated views for persons |                                                                                                                          |
 |---------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -128,7 +125,6 @@ People's visit and people's order are different entities and don't contain any c
 
 Please create 2 Database Views (with similar attributes as the original table) based on a simple filtering by gender of persons. Set the corresponding names for the database views: `v_persons_female` and `v_persons_male`.
 
-## Chapter V
 ## Exercise 01 — From parts to common view
 
 | Exercise 01: From parts to common view|                                                                                                                          |
@@ -147,7 +143,6 @@ Please use 2 Database Views from Exercise #00 and write SQL to get female and ma
 | ... |
 
 
-## Chapter VI
 ## Exercise 02 — "Store" generated dates in one place
 
 | Exercise 02: "Store" generated dates in one place|                                                                                                                          |
@@ -167,7 +162,6 @@ Please create a Database View (with name `v_generated_dates`) which should "stor
 | ... |
 
 
-## Chapter VII
 ## Exercise 03 — Find missing visit days with Database View
 
 | Exercise 03: Find missing visit days with Database View |                                                                                                                          |
@@ -186,7 +180,6 @@ Write a SQL statement that returns missing days for people's visits in January 2
 | 2022-01-12 |
 | ... |
 
-## Chapter VIII
 ## Exercise 04 — Let’s find something from Set Theory
 
 
@@ -204,7 +197,6 @@ Where R is the `person_visits` table with a filter on January 2, 2022, S is also
 
 
 
-## Chapter IX
 ## Exercise 05 — Let’s calculate a discount price for each person
 
 
@@ -226,8 +218,6 @@ Please create a Database View `v_price_with_discount` that returns the orders of
 
 
 
-
-## Chapter X
 ## Exercise 06 — Materialization from virtualization
 
 
@@ -238,12 +228,11 @@ Please create a Database View `v_price_with_discount` that returns the orders of
 | **Allowed**                               |                                                                                                                          |
 | Language                        | ANSI SQL                                                                                              |
 
-Please create a Materialized View `mv_dmitriy_visits_and_eats` (with data included) based on the SQL statement that finds the name of the pizzeria where Dmitriy visited on January 8, 2022 and could eat pizzas for less than 800 rubles (this SQL can be found at Day #02 Exercise #07). 
+Please create a Materialized View `mv_dmitriy_visits_and_eats` (with data included) based on the SQL statement that finds the name of the pizzeria where Dmitriy visited on January 8, 2022 and could eat pizzas for less than 800 rubles (this SQL can be found in the Project SQLB3_Retrieving data, Exercise #07). 
 
 To check yourself, you can write SQL to the Materialized View `mv_dmitriy_visits_and_eats` and compare the results with your previous query.
 
 
-## Chapter XI
 ## Exercise 07 — Refresh our state
 
 
@@ -259,7 +248,7 @@ To check yourself, you can write SQL to the Materialized View `mv_dmitriy_visits
 Let's refresh the data in our Materialized View `mv_dmitriy_visits_and_eats` from Exercise #06. Before this action, please create another Dmitriy visit that satisfies the SQL clause of the Materialized View except pizzeria, which we can see in a result from Exercise #06.
 After adding a new visit, please update a data state for `mv_dmitriy_visits_and_eats`.
 
-## Chapter XII
+
 ## Exercise 08 — Just clear our database
 
 
