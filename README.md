@@ -1,39 +1,41 @@
-# Day 07 — SQL Bootcamp
 
 ## _Aggregated data is more informative, isn't it?_
 
-Resume: Today you will see how to use specific OLAP constructions to get a "Value" from data.
+In this project you will master key practical SQL analysis skills essential for solving real-world business tasks: data aggregation (calculating sums, averages, minimum/maximum values), grouping by attributes, filtering results, joining tables, and working with conditional logic. 
+
+You will learn to transform raw database data into structured reports, calculate performance metrics, analyze customer behavior, and make data-driven business decisions.
 
 💡 [Tap here](https://new.oprosso.net/p/4cb31ec3f47a4596bc758ea1861fb624) **to leave your feedback on the project**. It's anonymous and will help our team make your educational experience better. We recommend completing the survey immediately after the project.
 
 ## Contents
 
-1. [Chapter I](#chapter-i) \
-    1.1. [Preamble](#preamble)
-2. [Chapter II](#chapter-ii) \
-    2.1. [General Rules](#general-rules)
-3. [Chapter III](#chapter-iii) \
-    3.1. [Rules of the day](#rules-of-the-day)  
-4. [Chapter IV](#chapter-iv) \
-    4.1. [Exercise 00 — Simple aggregated information](#exercise-00-simple-aggregated-information)  
-5. [Chapter V](#chapter-v) \
-    5.1. [Exercise 01 — Let’s see real names](#exercise-01-lets-see-real-names)  
-6. [Chapter VI](#chapter-vi) \
-    6.1. [Exercise 02 — Restaurants statistics](#exercise-02-restaurants-statistics)  
-7. [Chapter VII](#chapter-vii) \
-    7.1. [Exercise 03 — Restaurants statistics #2](#exercise-03-restaurants-statistics-2)  
-8. [Chapter VIII](#chapter-viii) \
-    8.1. [Exercise 04 — Clause for groups](#exercise-04-clause-for-groups)
-9. [Chapter IX](#chapter-ix) \
-    9.1. [Exercise 05 — Person's uniqueness](#exercise-05-persons-uniqueness)
-10. [Chapter X](#chapter-x) \
-    10.1. [Exercise 06 — Restaurant metrics](#exercise-06-restaurant-metrics)
-11. [Chapter XI](#chapter-xi) \
-    11.1. [Exercise 07 — Average global rating](#exercise-07-average-global-rating)
-12. [Chapter XII](#chapter-xii) \
-    12.1. [Exercise 08 — Find pizzeria’s restaurant locations](#exercise-08-find-pizzerias-restaurant-locations)    
-13. [Chapter XIII](#chapter-xiii) \
-    13.1. [Exercise 09 — Explicit type transformation](#exercise-09-explicit-type-transformation)        
+- [Chapter I](#chapter-i)
+- [Preamble](#preamble)
+- [Chapter II](#chapter-ii)
+- [Rules of the day](#rules-of-the-day)
+- [Exercise 00 — Simple aggregated information](#exercise-00--simple-aggregated-information)
+- [Exercise 01 — Let’s see real names](#exercise-01--lets-see-real-names)
+- [Exercise 02 — Restaurants statistics](#exercise-02--restaurants-statistics)
+- [Exercise 03 — Restaurants statistics #2](#exercise-03--restaurants-statistics-2)
+- [Exercise 04 — Clause for groups](#exercise-04--clause-for-groups)
+- [Exercise 05 — Person's uniqueness](#exercise-05--persons-uniqueness)
+- [Exercise 06 — Restaurant metrics](#exercise-06--restaurant-metrics)
+- [Exercise 07 — Average global rating](#exercise-07--average-global-rating)
+- [Exercise 08 — Find pizzeria’s restaurant locations](#exercise-08--find-pizzerias-restaurant-locations)
+- [Exercise 09 — Explicit type transformation](#exercise-09--explicit-type-transformation)
+
+## How to learn at «School 21»
+1. «School 21» might feel different from your previous educational experiences. It emphasizes high autonomy: you’re given a task, and you must complete it. Throughout the course, you are expected to delve deeper into the subject and solve problems. Use all available means to find information—the resources of the internet are limitless. Be mindful of your sources (for example, if you use AI tools): verify, think, analyze, and compare.
+2. You will need to present your solution to other students and receive feedback from them. Peer-to-peer (P2P) learning is a process where students exchange knowledge and experience, simultaneously acting as both mentors and learners. This way you can learn not only from materials but also from each other.
+3. Don’t hesitate to ask for help: around you are peers who are also navigating this path for the first time. Likewise, don’t be afraid to respond to requests for help—your experience is valuable and useful, so share it openly with others. Join RocketChat to stay updated with the latest community announcements.
+4. Your learning will be meaningless if you simply copy others’ solutions. If you receive help, always make sure you fully understand the why, how, and purpose behind it. Don’t be afraid to make mistakes.
+5. If you’re stuck on something and feel like you’ve tried everything but still don’t know what to do—just take a break! Believe it or not, this advice has helped many professionals in their work. Step away, clear your mind, and the right solution might just come to you next time!
+6. The learning process is just as important as the result. It’s not just about solving the task—it’s about understanding how to solve it.
+
+How to work with the project: 
+1. Before starting, clone the project from GitLab into a repository of the same name.
+2. All code files must be created in the src/ folder of the cloned repository.
+3. After cloning, create a develop branch and push changes to it in GitLab. Push to GitLab in the develop branch as well.
 
 ## Chapter I
 ## Preamble
@@ -53,27 +55,17 @@ If we are talking about historical data, then we should mention the "Data Lifecy
 
 
 ## Chapter II
-## General Rules
-
-- Use this page as your only reference. Do not listen to rumors and speculations about how to prepare your solution.
-- Make sure you are using the latest version of PostgreSQL.
-- It is perfectly fine if you use the IDE to write source code (aka SQL script).
-- To be evaluated, your solution must be in your GIT repository.
-- Your solutions will be evaluated by your peers.
-- You should not leave any files in your directory other than those explicitly specified by the exercise instructions. It is recommended that you modify your `.gitignore` to avoid accidents.
-- Got a question? Ask your neighbor to the right. Otherwise, try your neighbor on the left.
-- Your reference manual: mates / Internet / Google. 
-- Read the examples carefully. You may need things not specified in the topic.
-- And may the SQL-Force be with you!
-Absolutely anything can be represented in SQL! Let's get started and have fun!
-
-## Chapter III
 ## Rules of the day
 
-- Please make sure you have your own database and access to it on your PostgreSQL cluster. 
-- Please download a [script](materials/model.sql) with Database Model here and apply the script to your database (you can use command line with psql or just run it through any IDE, for example DataGrip from JetBrains or pgAdmin from PostgreSQL community). **Our knowledge way is incremental and linear therefore please be aware all changes that you made in Day03 during Exercises 07-13 and in Day04 during Exercise 07 should be on place (its similar like in real world , when we applied a release and need to be consistency with data for new changes).**
+- Make sure you are using the latest version of PostgreSQL.
+- It is perfectly fine if you use the IDE to write source code (aka SQL script).
+- You should not leave any files in your directory other than those explicitly specified by the exercise instructions. It is recommended that you modify your `.gitignore' to avoid accidents. 
+- Please download a [script](materials/model.sql) with Database Model here and apply the script to your database (you can use command line with psql or just run it through any IDE, for example DataGrip from JetBrains or pgAdmin from PostgreSQL community). **Our knowledge way is incremental and linear therefore please be aware that all changes you made in SQLB4_DML (Day 03) during Exercises 07-13 and in SQLB5_Snapshots (Day 04) during Exercise 07 should be on place (its similar like in real world when we applied a release and need to be consistent with data for new changes).**
 - All tasks contain a list of Allowed and Denied sections with listed database options, database types, SQL constructions etc. Please have a look at the section before you start.
-- Please take a look at the Logical View of our Database Model. 
+- And may the SQL-Force be with you!
+- Absolutely anything can be represented in SQL! Let's get started and have fun!
+
+Please take a look at the Logical View of our Database Model. 
 
 ![schema](misc/images/schema.png)
 
@@ -106,8 +98,6 @@ Absolutely anything can be represented in SQL! Let's get started and have fun!
 
 People's visit and people's order are different entities and don't contain any correlation between data. For example, a customer can be in a restaurant (just looking at the menu) and at the same time place an order in another restaurant by phone or mobile application. Or another case, just be at home and again make a call with order without any visits.
 
-
-## Chapter IV
 ## Exercise 00 — Simple aggregated information
 
 | Exercise 00: Simple aggregated information |                                                                                                                          |
@@ -126,7 +116,6 @@ Let's make a simple aggregation, please write a SQL statement that returns perso
 | ... | ... | 
 
 
-## Chapter V
 ## Exercise 01 — Let’s see real names
 
 | Exercise 01: Let’s see real names|                                                                                                                          |
@@ -146,7 +135,6 @@ Please modify an SQL statement from Exercise 00 and return a person name (not an
 
 
 
-## Chapter VI
 ## Exercise 02 — Restaurants statistics
 
 | Exercise 02: Restaurants statistics|                                                                                                                          |
@@ -165,7 +153,7 @@ Please write a SQL statement to see 3 favorite restaurants by visits and by orde
 | Dominos | 7 | visit |
 | ... | ... | ... |
 
-## Chapter VII
+
 ## Exercise 03 — Restaurants statistics #2
 
 | Exercise 03: Restaurants statistics #2 |                                                                                                                          |
@@ -190,7 +178,7 @@ Take a look at the example data below.
 | ... | ... | 
 
 
-## Chapter VIII
+
 ## Exercise 04 — Clause for groups
 
 
@@ -211,7 +199,7 @@ Please write a SQL statement that returns the person's name and the correspondin
 
 
 
-## Chapter IX
+
 ## Exercise 05 — Person's uniqueness
 
 
@@ -232,7 +220,7 @@ Please write a simple SQL query that returns a list of unique person names who h
 | Anna | 
 | ... | 
 
-## Chapter X
+
 ## Exercise 06 — Restaurant metrics
 
 
@@ -243,7 +231,12 @@ Please write a simple SQL query that returns a list of unique person names who h
 | **Allowed**                               |                                                                                                                          |
 | Language                        | ANSI SQL                                                                                              |
 
-Please write a SQL statement that returns the number of orders, the average price, the maximum price and the minimum price for pizzas sold by each pizzeria restaurant. The result should be sorted by pizzeria name. See the sample data below. 
+Please write a SQL statement that returns 
+- the number of orders,
+- the average price, 
+- the maximum price 
+- and the minimum price for pizzas sold by each pizzeria restaurant. 
+The result should be sorted by pizzeria name. See the sample data below. 
 Round the average price to 2 floating numbers.
 
 | name | count_of_orders | average_price | max_price | min_price |
@@ -253,7 +246,7 @@ Round the average price to 2 floating numbers.
 | ... | ... | ... | ... | ... |
 
 
-## Chapter XI
+
 ## Exercise 07 — Average global rating
 
 
@@ -267,7 +260,7 @@ Round the average price to 2 floating numbers.
 Write an SQL statement that returns a common average rating (the output attribute name is global_rating) for all restaurants. Round your average rating to 4 floating point numbers.
 
 
-## Chapter XII
+
 ## Exercise 08 — Find pizzeria’s restaurant locations
 
 
@@ -278,7 +271,11 @@ Write an SQL statement that returns a common average rating (the output attribut
 | **Allowed**                               |                                                                                                                          |
 | Language                        | ANSI SQL                                                                                              |
 
-We know personal addresses from our data. Let's assume that this person only visits pizzerias in his city. Write a SQL statement that returns the address, the name of the pizzeria, and the amount of the person's orders. The result should be sorted by address and then by restaurant name. Please take a look at the sample output data below.
+We know personal addresses from our data. Let's assume that this person only visits pizzerias in his city. Write a SQL statement that returns 
+- the address, 
+- the name of the pizzeria, 
+- the amount of the person's orders. 
+The result should be sorted by address and then by restaurant name. Please take a look at the sample output data below.
 
 | address | name |count_of_orders |
 | ------ | ------ |------ |
@@ -287,7 +284,7 @@ We know personal addresses from our data. Let's assume that this person only vis
 | ... | ... | ... | 
 
 
-## Chapter XIII
+
 ## Exercise 09 — Explicit type transformation
 
 
@@ -298,7 +295,11 @@ We know personal addresses from our data. Let's assume that this person only vis
 | **Allowed**                               |                                                                                                                          |
 | Language                        | ANSI SQL                                                                                              |
 
-Please write a SQL statement that returns aggregated information by person's address, the result of "Maximum Age - (Minimum Age / Maximum Age)" presented as a formula column, next is average age per address and the result of comparison between formula and average columns (in other words, if formula is greater than average, then True, otherwise False value).
+Please write a SQL statement that returns aggregated information by 
+- person's address, 
+- the result of "Maximum Age - (Minimum Age / Maximum Age)" presented as a formula column, 
+- average age per address 
+- the result of comparison between formula and average columns (in other words, if formula is greater than average, then True, otherwise False value).
 
 The result should be sorted by address column. Please take a look at the example of output data below.
 
