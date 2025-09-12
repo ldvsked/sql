@@ -1,38 +1,42 @@
-# Day 09 — SQL Bootcamp
-
 ## _RDBMS is not just a tables_
 
-Resume: Today you will see how to create and use functional blocks in Databases.
+In this project, you will master creating functions (SQL/PLpgSQL) and triggers to implement business logic at the database level, learn to develop a data change audit system, and optimize queries. 
+
+These skills will be useful in backend development, data analysis, and designing high-load systems where ensuring data integrity, tracking changes, and moving logic to the database are required to improve performance.
 
 💡 [Tap here](https://new.oprosso.net/p/4cb31ec3f47a4596bc758ea1861fb624) **to leave your feedback on the project**. It's anonymous and will help our team make your educational experience better. We recommend completing the survey immediately after the project.
 
 ## Contents
 
-1. [Chapter I](#chapter-i) \
-    1.1. [Preamble](#preamble)
-2. [Chapter II](#chapter-ii) \
-    2.1. [General Rules](#general-rules)
-3. [Chapter III](#chapter-iii) \
-    3.1. [Rules of the day](#rules-of-the-day)  
-4. [Chapter IV](#chapter-iv) \
-    4.1. [Exercise 00 — Audit of incoming inserts](#exercise-00-audit-of-incoming-inserts)  
-5. [Chapter V](#chapter-v) \
-    5.1. [Exercise 01 — Audit of incoming updates](#exercise-01-audit-of-incoming-updates)  
-6. [Chapter VI](#chapter-vi) \
-    6.1. [Exercise 02 — Audit of incoming deletes](#exercise-02-audit-of-incoming-deletes)  
-7. [Chapter VII](#chapter-vii) \
-    7.1. [Exercise 03 — Generic Audit](#exercise-03-generic-audit)  
-8. [Chapter VIII](#chapter-viii) \
-    8.1. [Exercise 04 — Database View VS Database Function](#exercise-04-database-view-vs-database-function)
-9. [Chapter IX](#chapter-ix) \
-    9.1. [Exercise 05 — Parameterized Database Function](#exercise-05-parameterized-database-function)
-10. [Chapter X](#chapter-x) \
-    10.1. [Exercise 06 — Function like a function-wrapper](#exercise-06-function-like-a-function-wrapper)
-11. [Chapter XI](#chapter-xi) \
-    11.1. [Exercise 07 — Different view to find a Minimum](#exercise-07-different-view-to-find-a-minimum)
-12. [Chapter XII](#chapter-xii) \
-    12.1. [Exercise 08 — Fibonacci algorithm is in a function](#exercise-08-fibonacci-algorithm-is-in-a-function)    
+- [How to learn at «School 21»](#how-to-learn-at-school-21)
+- [Chapter I](#chapter-i)
+- [Preamble](#preamble)
+- [Chapter II](#chapter-ii)
+- [Rules of the day](#rules-of-the-day)
+- [Chapter II](#chapter-ii-1)
+- [Exercise 00 — Audit of incoming inserts](#exercise-00--audit-of-incoming-inserts)
+- [Exercise 01 — Audit of incoming updates](#exercise-01--audit-of-incoming-updates)
+- [Exercise 02 — Audit of incoming deletes](#exercise-02--audit-of-incoming-deletes)
+- [Exercise 03 — Generic Audit](#exercise-03--generic-audit)
+- [Exercise 04 — Database View VS Database Function](#exercise-04--database-view-vs-database-function)
+- [Exercise 05 — Parameterized Database Function](#exercise-05--parameterized-database-function)
+- [Exercise 06 — Function like a function-wrapper](#exercise-06--function-like-a-function-wrapper)
+- [Exercise 07 — Different view to find a Minimum](#exercise-07--different-view-to-find-a-minimum)
+- [Exercise 08 — Fibonacci algorithm is in a function](#exercise-08--fibonacci-algorithm-is-in-a-function)
+
       
+## How to learn at «School 21»
+1. «School 21» might feel different from your previous educational experiences. It emphasizes high autonomy: you’re given a task, and you must complete it. Throughout the course, you are expected to delve deeper into the subject and solve problems. Use all available means to find information—the resources of the internet are limitless. Be mindful of your sources (for example, if you use AI tools): verify, think, analyze, and compare.
+2. You will need to present your solution to other students and receive feedback from them. Peer-to-peer (P2P) learning is a process where students exchange knowledge and experience, simultaneously acting as both mentors and learners. This way you can learn not only from materials but also from each other.
+3. Don’t hesitate to ask for help: around you are peers who are also navigating this path for the first time. Likewise, don’t be afraid to respond to requests for help—your experience is valuable and useful, so share it openly with others. Join RocketChat to stay updated with the latest community announcements.
+4. Your learning will be meaningless if you simply copy others’ solutions. If you receive help, always make sure you fully understand the why, how, and purpose behind it. Don’t be afraid to make mistakes.
+5. If you’re stuck on something and feel like you’ve tried everything but still don’t know what to do—just take a break! Believe it or not, this advice has helped many professionals in their work. Step away, clear your mind, and the right solution might just come to you next time!
+6. The learning process is just as important as the result. It’s not just about solving the task—it’s about understanding how to solve it.
+
+How to work with the project: 
+1. Before starting, clone the project from GitLab into a repository of the same name.
+2. All code files must be created in the src/ folder of the cloned repository.
+3. After cloning, create a develop branch and push changes to it in GitLab. Push to GitLab in the develop branch as well.
 
 ## Chapter I
 ## Preamble
@@ -61,27 +65,16 @@ Just think about it and try to create a clean architecture :-)
 
 
 ## Chapter II
-## General Rules
-
-- Use this page as your only reference. Do not listen to rumors and speculations about how to prepare your solution.
-- Make sure you are using the latest version of PostgreSQL.
-- It is perfectly fine if you use the IDE to write source code (aka SQL script).
-- To be evaluated, your solution must be in your GIT repository.
-- Your solutions will be evaluated by your peers.
-- You should not leave any files in your directory other than those explicitly specified by the exercise instructions. It is recommended that you modify your `.gitignore` to avoid accidents.
-- Got a question? Ask your neighbor to the right. Otherwise, try your neighbor on the left.
-- Your reference manual: mates / Internet / Google. 
-- Read the examples carefully. You may need things not specified in the topic.
-- And may the SQL-Force be with you!
-Absolutely anything can be represented in SQL! Let's get started and have fun!
-
-## Chapter III
 ## Rules of the day
 
+- Make sure you are using the latest version of PostgreSQL.
+- It is perfectly fine if you use the IDE to write source code (aka SQL script).
+- You should not leave any files in your directory other than those explicitly specified by the exercise instructions. It is recommended that you modify your `.gitignore' to avoid accidents. 
 - Please make sure you have your own database and access to it on your PostgreSQL cluster. 
-- Please download a [script](materials/model.sql) with Database Model here and apply the script to your database (you can use command line with psql or just run it through any IDE, for example DataGrip from JetBrains or pgAdmin from PostgreSQL community). **Our knowledge way is incremental and linear therefore please be aware all changes that you made in Day03 during Exercises 07-13 and in Day04 during Exercise 07 should be on place (its similar like in real world, when we applied a release and need to be consistency with data for new changes).**
+- Please download a [script](materials/model.sql) with Database Model here and apply the script to your database (you can use command line with psql or just run it through any IDE, for example DataGrip from JetBrains or pgAdmin from PostgreSQL community). **Our knowledge way is incremental and linear therefore please be aware that all changes you made in SQLB4_DML (Day 03) during Exercises 07-13 and in SQLB5_Snapshots (Day 04) during Exercise 07 should be on place (its similar like in real world when we applied a release and need to be consistent with data for new changes).**
 - All tasks contain a list of Allowed and Denied sections with listed database options, database types, SQL constructions etc. Please have a look at the section before you start.
-- Please take a look at the Logical View of our Database Model. 
+- And may the SQL-Force be with you!
+- Absolutely anything can be represented in SQL! Let's get started and have fun!
 
 ![schema](misc/images/schema.png)
 
@@ -115,7 +108,7 @@ Absolutely anything can be represented in SQL! Let's get started and have fun!
 People's visit and people's order are different entities and don't contain any correlation between data. For example, a customer can be in a restaurant (just looking at the menu) and in that time place an order in another restaurant by phone or mobile application. Or another case, just be at home and again make a call with order without any visits.
 
 
-## Chapter IV
+## Chapter II
 ## Exercise 00 — Audit of incoming inserts
 
 | Exercise 00: Audit of incoming inserts |                                                                                                                          |
@@ -151,7 +144,6 @@ When you are done with the trigger objects, please issue an `INSERT` statement i
 `INSERT INTO person(id, name, age, gender, address) VALUES (10,'Damir', 22, 'male', 'Irkutsk');`
 
 
-## Chapter V
 ## Exercise 01 — Audit of incoming updates
 
 | Exercise 01: Audit of incoming updates|                                                                                                                          |
@@ -169,7 +161,6 @@ When you are ready, apply the UPDATE statements below.
 `UPDATE person SET name = 'Damir' WHERE id = 10;`
 
 
-## Chapter VI
 ## Exercise 02 — Audit of incoming deletes
 
 | Exercise 02: Audit of incoming deletes|                                                                                                                          |
@@ -185,7 +176,6 @@ When you are ready, use the SQL statement below.
 
 `DELETE FROM person WHERE id = 10;`
 
-## Chapter VII
 ## Exercise 03 — Generic Audit
 
 | Exercise 03: Generic Audit |                                                                                                                          |
@@ -211,7 +201,6 @@ When you are ready, reapply the set of DML statements.
 `DELETE FROM person WHERE id = 10;`
 
 
-## Chapter VIII
 ## Exercise 04 — Database View VS Database Function
 
 
@@ -236,7 +225,6 @@ To check yourself and call a function, you can make a statement like this (Amazi
     FROM fnc_persons_female();
 
 
-## Chapter IX
 ## Exercise 05 — Parameterized Database Function
 
 
@@ -259,7 +247,6 @@ To check yourself and call a function, you can make a statement like this (Wow! 
     from fnc_persons();
 
 
-## Chapter X
 ## Exercise 06 — Function like a function-wrapper
 
 
@@ -283,7 +270,6 @@ To check yourself and call a function, you can make a statement like the one bel
     from fnc_person_visits_and_eats_on_date(pperson := 'Anna',pprice := 1300,pdate := '2022-01-01');
 
 
-## Chapter XI
 ## Exercise 07 — Different view to find a Minimum
 
 
@@ -301,7 +287,6 @@ To check yourself and call a function, you can make a statement like the one bel
     SELECT func_minimum(VARIADIC arr => ARRAY[10.0, -1.0, 5.0, 4.4]);
 
 
-## Chapter XII
 ## Exercise 08 — Fibonacci algorithm is in a function
 
 
