@@ -67,7 +67,7 @@ In addition, SQL sets are useful for calculating some specific data science metr
 
 - Make sure you are using the latest version of PostgreSQL.
 - It is perfectly fine if you use the IDE to write source code (aka SQL script).
-- You should not leave any files in your directory other than those explicitly specified by the exercise instructions. It is recommended that you modify your `.gitignore' to avoid accidents.
+- You should not leave any files in your directory other than those explicitly specified by the exercise instructions. It is recommended that you modify your `.gitignore` to avoid accidents.
 -  Please make sure you have your own database and access to it on your PostgreSQL cluster.
 - Please download a [script](materials/model.sql) with Database Model here and apply the script to your database (you can use command line with psql or just run it through any IDE, for example DataGrip from JetBrains or pgAdmin from PostgreSQL community). 
 - All tasks contain a list of Allowed and Denied sections with listed database options, database types, SQL constructions etc. Please have a look at the section before you start.
