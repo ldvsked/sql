@@ -267,7 +267,7 @@ Find the same pizza names that have the same price, but from different pizzerias
 | **Allowed**                               |                                                                                                                          |
 | Language                        | ANSI SQL                                                                                              |
 
-Add a new pizza named "Greek pizza" (id = 19) priced at 800 rubles to the "Dominos" restaurant (pizzeria_id = 2).
+Add a new pizza named "greek pizza" (id = 19) priced at 800 rubles to the "Dominos" restaurant (pizzeria_id = 2).
 **Important notes**: this exercise may modify data. You can restore the original database schema from the Materials folder.
 
 
