@@ -296,7 +296,7 @@ If we are talking about historical data, then we should mention the "Data Lifecy
 
 1. Адрес (person address)
 2. Название пиццерии (pizzeria name)
-3. Сумму его заказов (amount of orders) в этой пиццерии.
+3. Число его заказов (count of orders) в этой пиццерии.
 
 Отсортируй результат сначала по адресу, а затем по названию заведения.
 

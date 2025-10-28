@@ -274,7 +274,7 @@ Write an SQL statement that returns a common average rating (the output attribut
 We know personal addresses from our data. Let's assume that this person only visits pizzerias in his city. Write a SQL statement that returns 
 - the address, 
 - the name of the pizzeria, 
-- the amount of the person's orders. 
+- the count of the person's orders. 
 The result should be sorted by address and then by restaurant name. Please take a look at the sample output data below.
 
 | address | name |count_of_orders |
