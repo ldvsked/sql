@@ -283,7 +283,7 @@ Add a new pizza named "greek pizza" (id = 19) priced at 800 rubles to the "Domin
 | **Denied**                               |                                                                                                                          |
 | SQL Syntax Pattern                        | Don’t use direct numbers for identifiers of Primary Key and pizzeria                                                                                               |       
 
-Add a new pizza named "Sicilian pizza"(with an ID calculated as "maximum existing ID + 1") priced at 900 rubles in the "Dominos" restaurant (use a subquery to retrieve the pizzeria's identifier).
+Add a new pizza named "sicilian pizza"(with an ID calculated as "maximum existing ID + 1") priced at 900 rubles in the "Dominos" restaurant (use a subquery to retrieve the pizzeria's identifier).
 **Important notes**: this exercise may modify data. You can restore the original database schema from the Materials folder and replay the script from Exercises 07.
 
 
@@ -317,7 +317,7 @@ Please record new visits to the Domino's restaurant by Denis and Irina on Februa
 | SQL Syntax Pattern                        | Don’t use direct numbers for identifiers of Primary Key and pizzeria                                                                                               |     
 
 
-Please register new orders from Denis and Irina on February 24, 2022, for the new menu item "Sicilian pizza."
+Please register new orders from Denis and Irina on February 24, 2022, for the new menu item "sicilian pizza."
 **Important notes**: this exercise may modify data. You can restore the original database schema from the Materials folder and replay the script from Exercises 07, 08, 09.
 
 
