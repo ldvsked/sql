@@ -90,30 +90,30 @@ Please take a look at the Logical View of our Database Model.
 
 
 1. **pizzeria** table (Dictionary Table with available pizzerias)
-- field id — primary key
-- field name — name of pizzeria
-- field rating — average rating of pizzeria (from 0 to 5 points)
+    - field id — primary key
+    - field name — name of pizzeria
+    - field rating — average rating of pizzeria (from 0 to 5 points)
 2. **person** table (Dictionary Table with persons who loves pizza)
-- field id — primary key
-- field name — name of person
-- field age — age of person
-- field gender — gender of person
-- field address — address of person
+    - field id — primary key
+    - field name — name of person
+    - field age — age of person
+    - field gender — gender of person
+    - field address — address of person
 3. **menu** table (Dictionary Table with available menu and price for concrete pizza)
-- field id — primary key
-- field pizzeria_id — foreign key to pizzeria
-- field pizza_name — name of pizza in pizzeria
-- field price — price of concrete pizza
+    - field id — primary key
+    - field pizzeria_id — foreign key to pizzeria
+    - field pizza_name — name of pizza in pizzeria
+    - field price — price of concrete pizza
 4. **person_visits** table (Operational Table with information about visits of pizzeria)
-- field id — primary key
-- field person_id — foreign key to person
-- field pizzeria_id — foreign key to pizzeria
-- field visit_date — date (for example 2022-01-01) of person visit 
+    - field id — primary key
+    - field person_id — foreign key to person
+    - field pizzeria_id — foreign key to pizzeria
+    - field visit_date — date (for example 2022-01-01) of person visit 
 5. **person_order** table (Operational Table with information about persons orders)
-- field id — primary key
-- field person_id — foreign key to person
-- field menu_id — foreign key to menu
-- field order_date — date (for example 2022-01-01) of person order 
+    - field id — primary key
+    - field person_id — foreign key to person
+    - field menu_id — foreign key to menu
+    - field order_date — date (for example 2022-01-01) of person order 
 
 People's visit and people's order are different entities and don't contain any correlation between data. For example, a customer can be in a restaurant (just looking at the menu) and in that time place an order in another restaurant by phone or mobile application. Or another case, just be at home and again make a call with order without any visits.
 
@@ -183,9 +183,10 @@ Before running a task, make sure you are at a standard isolation level in your d
 
 If not, please set the read committed isolation level explicitly on a session level.
 
-|  |  |
-| ------ | ------ |
-| Let's examine one of the famous "Lost Update Anomaly" database patterns. You can see a graphical representation of this anomaly on a picture. The horizontal red line represents the final results after all the sequential steps for both Sessions. | ![D08_06](misc/images/D08_06.png) |
+| |
+|-|
+| Let's examine one of the famous "Lost Update Anomaly" database patterns. You can see a graphical representation of this anomaly on a picture. The horizontal red line represents the final results after all the sequential steps for both Sessions. |
+| ![D08_06](misc/images/D08_06.png) |
 
 Please check a rating for "Pizza Hut" in a transaction mode for both sessions and then make an `UPDATE` of the rating to a value of 4 in Session #1 and make an `UPDATE` of the rating to a value of 3.6 in Session #2 (in the same order as in the picture).
 
@@ -203,9 +204,10 @@ You need to use the command line for PostgreSQL database (psql) for this task. Y
 
 Actually, we need two active sessions (i.e. 2 parallel sessions in the command line).
 
-|  |  |
-| ------ | ------ |
-| Let's examine one of the famous "Lost Update Anomaly" database patterns, but under the `REPEATABLE READ` isolation level. You can see a graphical representation of this anomaly on a picture. Horizontal red line means the final results after all sequential steps for both Sessions. | ![D08_07](misc/images/D08_07.png) |
+| |
+|-|
+| Let's examine one of the famous "Lost Update Anomaly" database patterns, but under the `REPEATABLE READ` isolation level. You can see a graphical representation of this anomaly on a picture. Horizontal red line means the final results after all sequential steps for both Sessions. |
+| ![D08_07](misc/images/D08_07.png) |
 
 You need to check a rating for "Pizza Hut" in a transaction mode for both sessions and then make an `UPDATE` of the rating to a value of 4 in Session #1 and make an `UPDATE` of the rating to a value of 3.6 in Session #2 (in the same order as in the picture).
 
@@ -222,9 +224,10 @@ You need to use the command line for PostgreSQL database (psql) for this task. Y
 
 Actually, we need two active sessions (i.e. 2 parallel sessions in the command line).
 
-|  |  |
-| ------ | ------ |
-| Let's check one of the famous "Non-Repeatable Reads" database patterns, but under the `READ COMMITTED` isolation level. You can see a graphical representation of this anomaly on a picture. The horizontal red line represents the final result after all sequential steps for both Sessions. | ![D08_08](misc/images/D08_08.png) |
+| |
+|-|
+| Let's check one of the famous "Non-Repeatable Reads" database patterns, but under the `READ COMMITTED` isolation level. You can see a graphical representation of this anomaly on a picture. The horizontal red line represents the final result after all sequential steps for both Sessions. |
+| ![D08_08](misc/images/D08_08.png) |
 
 You need to check a rating for "Pizza Hut" in a transaction mode for Session #1 and then make an `UPDATE` of the rating to a value of 3.6 in Session #2 (in the same order as in the picture).
 
@@ -243,9 +246,10 @@ You need to use the command line for PostgreSQL database (psql) for this task. Y
 
 Actually, we need two active sessions (i.e. 2 parallel sessions in the command line).
 
-|  |  |
-| ------ | ------ |
-| Let's check one of the famous "Non-Repeatable Reads" database patterns, but under the `SERIALIZABLE` isolation level. You can see a graphical representation of this anomaly on a picture. The horizontal red line represents the final results after all sequential steps for both Sessions. | ![D08_09](misc/images/D08_09.png) |
+| |
+|-|
+| Let's check one of the famous "Non-Repeatable Reads" database patterns, but under the `SERIALIZABLE` isolation level. You can see a graphical representation of this anomaly on a picture. The horizontal red line represents the final results after all sequential steps for both Sessions. |
+| ![D08_09](misc/images/D08_09.png) |
 
 You need to check a rating for "Pizza Hut" in a transaction mode for Session #1, and then make an `UPDATE` of the rating to a value of 3.0 in Session #2 (in the same order as in the picture).
 
@@ -264,9 +268,10 @@ You need to use the command line for PostgreSQL database (psql) for this task. Y
 
 Actually, we need two active sessions (i.e. 2 parallel sessions in the command line).
 
-|  |  |
-| ------ | ------ |
-| Let's check one of the famous "phantom reads" database patterns, but under the `READ COMMITTED` isolation level. You can see a graphical representation of this anomaly on a picture. The horizontal red line represents the final results after all sequential steps for both Sessions. | ![D08_10](misc/images/D08_10.png) |
+| |
+|-|
+| Let's check one of the famous "phantom reads" database patterns, but under the `READ COMMITTED` isolation level. You can see a graphical representation of this anomaly on a picture. The horizontal red line represents the final results after all sequential steps for both Sessions. |
+| ![D08_10](misc/images/D08_10.png) |
 
 PYou need to summarize all ratings for all pizzerias in one transaction mode for Session #1 and then make `INSERT` of the new restaurant 'Kazan Pizza' with rating 5 and ID=10 in Session #2 (in the same order as in the picture).
  
@@ -285,9 +290,10 @@ You need to use the command line for PostgreSQL database (psql) for this task. Y
 
 Actually, we need two active sessions (i.e. 2 parallel sessions in the command line).
 
-|  |  |
-| ------ | ------ |
-| Let's check one of the famous "Phantom Reads" database patterns, but under the isolation level `REPEATABLE READ`. You can see a graphical representation of this anomaly on a picture. The horizontal red line represents the final results after all sequential steps for both Sessions. | ![D08_11](misc/images/D08_11.png) |
+| |
+|-|
+| Let's check one of the famous "Phantom Reads" database patterns, but under the isolation level `REPEATABLE READ`. You can see a graphical representation of this anomaly on a picture. The horizontal red line represents the final results after all sequential steps for both Sessions. |
+| ![D08_11](misc/images/D08_11.png) |
 
 You need to summarize all ratings for all pizzerias in one transaction mode for Session #1 and then make `INSERT` of the new restaurant 'Kazan Pizza 2' with rating 4 and ID=11 in Session #2 (in the same order as in the picture).
 
@@ -308,9 +314,10 @@ Actually, we need two active sessions (i.e. 2 parallel sessions in the command l
 Let’s reproduce a deadlock situation in our database. 
 
 
-|  |  |
-| ------ | ------ |
-| You can see a graphical representation of the deadlock situation in a picture. It looks like a "Christ-lock" between parallel sessions. | ![D08_12](misc/images/D08_12.png) |
+| |
+|-|
+| You can see a graphical representation of the deadlock situation in a picture. It looks like a "Christ-lock" between parallel sessions. |
+| ![D08_12](misc/images/D08_12.png) |
 
 You need to write any SQL statement with any isolation level (you can use the default setting) on the table `pizzeria` to reproduce this deadlock situation.
 
