@@ -6,6 +6,8 @@ You will practice skills in working with selection conditions, sorting by multip
 
 These skills will be useful for data analysis, report generation, and developing applications that interact with databases.
 
+**For this and future SQL1 projects, make sure you have your own database and access to it in your PostgreSQL cluster. If needed, refer to the instructions in the `materials`.**
+
 💡 [Tap here](https://new.oprosso.net/p/4cb31ec3f47a4596bc758ea1861fb624) **to leave your feedback on the project**. It's anonymous and will help our team make your educational experience better. We recommend completing the survey immediately after the project.
 
 ## Contents
