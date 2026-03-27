@@ -26,17 +26,20 @@ These skills will be useful in backend development, data analysis, and designing
 
       
 ## How to learn at «School 21»
-1. «School 21» might feel different from your previous educational experiences. It emphasizes high autonomy: you’re given a task, and you must complete it. Throughout the course, you are expected to delve deeper into the subject and solve problems. Use all available means to find information—the resources of the internet are limitless. Be mindful of your sources (for example, if you use AI tools): verify, think, analyze, and compare.
-2. You will need to present your solution to other students and receive feedback from them. Peer-to-peer (P2P) learning is a process where students exchange knowledge and experience, simultaneously acting as both mentors and learners. This way you can learn not only from materials but also from each other.
-3. Don’t hesitate to ask for help: around you are peers who are also navigating this path for the first time. Likewise, don’t be afraid to respond to requests for help—your experience is valuable and useful, so share it openly with others. Join RocketChat to stay updated with the latest community announcements.
-4. Your learning will be meaningless if you simply copy others’ solutions. If you receive help, always make sure you fully understand the why, how, and purpose behind it. Don’t be afraid to make mistakes.
-5. If you’re stuck on something and feel like you’ve tried everything but still don’t know what to do—just take a break! Believe it or not, this advice has helped many professionals in their work. Step away, clear your mind, and the right solution might just come to you next time!
-6. The learning process is just as important as the result. It’s not just about solving the task—it’s about understanding how to solve it.
 
-How to work with the project: 
-1. Before starting, clone the project from GitLab into a repository of the same name.
-2. All code files must be created in the src/ folder of the cloned repository.
-3. After cloning, create a develop branch and push changes to it in GitLab. Push to GitLab in the develop branch as well.
+- Here, you’ll find a unique learning experience with a lot of freedom. You’re given a task and left to find your own way to solve it, using whatever resources work best for you — whether that’s the Internet or AI tools like GigaChat. Just be mindful of information quality: verify, think critically, analyze, and compare.
+- Peer-to-peer (P2P) learning is the exchange of knowledge and experience with peers, where everyone acts as both mentor and student. This approach allows you to gain a deeper understanding of the material by learning from one another.
+- Feel free to ask for help: around you are peers who are also navigating this path for the first time. Share your own experience and ideas with others.  Join Rocket.Chat to stay updated with the latest community announcements. 
+- Your learning is meaningless if you just copy someone else’s solutions. When receiving help from others, always make sure you fully understand the “why”, “how”, and “purpose” behind the solution. Don’t be afraid to make mistakes. 
+- Does the task seem impossible? Take a break, get some fresh air and clear your mind — this has helped many people. Maybe after that, the solution will come to you naturally.
+- The learning process is just as important as the result. It’s not just about completing the task — it’s about understanding HOW to solve it. 
+
+How to work with the project:
+
+- Before starting, clone the project from GitLab into a repository with the same name.
+- All files should be created inside the _src/_ folder of the cloned repository.
+- After cloning the project, create a _develop_ branch and do all your development there. Then, push the _develop_ branch to GitLab.
+- Your directory should not contain any files other than those specified in the assignments.
 
 ## Chapter I
 ## Preamble
@@ -80,30 +83,30 @@ Just think about it and try to create a clean architecture :-)
 
 
 1. **pizzeria** table (Dictionary Table with available pizzerias)
-- field id — primary key
-- field name — name of pizzeria
-- field rating — average rating of pizzeria (from 0 to 5 points)
+    - field id — primary key
+    - field name — name of pizzeria
+    - field rating — average rating of pizzeria (from 0 to 5 points)
 2. **person** table (Dictionary Table with persons who loves pizza)
-- field id — primary key
-- field name — name of person
-- field age — age of person
-- field gender — gender of person
-- field address — address of person
+    - field id — primary key
+    - field name — name of person
+    - field age — age of person
+    - field gender — gender of person
+    - field address — address of person
 3. **menu** table (Dictionary Table with available menu and price for concrete pizza)
-- field id — primary key
-- field pizzeria_id — foreign key to pizzeria
-- field pizza_name — name of pizza in pizzeria
-- field price — price of concrete pizza
+    - field id — primary key
+    - field pizzeria_id — foreign key to pizzeria
+    - field pizza_name — name of pizza in pizzeria
+    - field price — price of concrete pizza
 4. **person_visits** table (Operational Table with information about visits of pizzeria)
-- field id — primary key
-- field person_id — foreign key to person
-- field pizzeria_id — foreign key to pizzeria
-- field visit_date — date (for example 2022-01-01) of person visit 
+    - field id — primary key
+    - field person_id — foreign key to person
+    - field pizzeria_id — foreign key to pizzeria
+    - field visit_date — date (for example 2022-01-01) of person visit 
 5. **person_order** table (Operational Table with information about persons orders)
-- field id — primary key
-- field person_id — foreign key to person
-- field menu_id — foreign key to menu
-- field order_date — date (for example 2022-01-01) of person order 
+    - field id — primary key
+    - field person_id — foreign key to person
+    - field menu_id — foreign key to menu
+    - field order_date — date (for example 2022-01-01) of person order 
 
 People's visit and people's order are different entities and don't contain any correlation between data. For example, a customer can be in a restaurant (just looking at the menu) and in that time place an order in another restaurant by phone or mobile application. Or another case, just be at home and again make a call with order without any visits.
 
